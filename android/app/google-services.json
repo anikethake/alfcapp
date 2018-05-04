@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "630848195756",
+    "firebase_url": "https://alfc-app.firebaseio.com",
+    "project_id": "alfc-app",
+    "storage_bucket": "alfc-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630848195756:android:1f5480d7264372e0",
+        "android_client_info": {
+          "package_name": "com.noname.alfcapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630848195756-2oegb3rjhil0db9nkb0dokis3jcutkhg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw_Qtf6el9N1CRQOa474QXv3kLN0MJjdI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
