@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'package:progress_hud/progress_hud.dart';
 
 
 //void main() => runApp(new MyApp());
@@ -55,27 +56,43 @@ class _MyHomePageState extends State<MyFixtures> {
 }
 
 class TeamList extends StatelessWidget {
+  DateTime now = new DateTime.now();
+
 
   @override
   Widget build(BuildContext context) {
     return new Container(
       decoration: new BoxDecoration( color: Color(0xFF00204A)),
       child:  new StreamBuilder<QuerySnapshot>(
-        stream: Firestore.instance.collection('ALFCdata').snapshots,
+        stream: Firestore.instance.collection('ALFCdata').orderBy('matchdate').snapshots,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
 
 
-          if (!snapshot.hasData) return new Text('Loading...');
+          if (!snapshot.hasData) return new ProgressHUD(
+            backgroundColor: Colors.black12,
+            color: Colors.white,
+            containerColor: Colors.blue,
+            borderRadius: 5.0,
+          );
 
 
           return new ListView(
 
 
+
             children: snapshot.data.documents.map((DocumentSnapshot document) {
-              DateTime now = new DateTime.now();
+             // DateTime now = new DateTime.now();
               DateTime matchdate= document['matchdate'];
               var formatter = new DateFormat('dd-MM-yyyy');
-              String formatted = formatter.format(matchdate);
+              String formatted;
+              if (formatter.format(matchdate) == formatter.format(now))
+                {
+                  formatted = "Today";
+
+                }
+                else{
+                formatted= formatter.format(matchdate);
+              }
 
               return new Padding(
                 padding: new EdgeInsets.all(8.0),
@@ -102,7 +119,8 @@ class TeamList extends StatelessWidget {
                           ),
                           new  Expanded(
 
-                            child: new Text(formatted,
+                            child: new Text(
+                              formatted,
                               textAlign: TextAlign.center,
                               overflow: TextOverflow.ellipsis,
                               style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 22.0,color: Color(0xFFD9FAFF).withOpacity(1.0)),),

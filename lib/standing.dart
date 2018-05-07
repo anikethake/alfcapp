@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:progress_hud/progress_hud.dart';
 
 
 //void main() => runApp(new MyApp());
@@ -36,7 +37,7 @@ class _MyHomePageState extends State<MyStanding> {
         backgroundColor: Color(0xFF00204A),
 
         title: new Center(child: new Padding(
-          padding: const EdgeInsets.only(left: 5.0,right: 5.0),
+          padding: const EdgeInsets.only(left: 2.0,right: 2.0),
           child: new Row(
             children: <Widget>[
               new  Expanded(
@@ -116,21 +117,26 @@ class TeamList extends StatefulWidget {
 
 class _MyTeamListState extends State<TeamList>
 {
+  int W,D,L,pts;
   @override
   void initState() {
 
     super.initState();
-/*
-    Map<String, String> data = <String, String>{
-      "D": D.toString(),
-      "PTS": pts.toString(),
-    };
 
-    Firestore.instance.collection('ALFCstanding').document()
-        .updateData(data);
+    //Map<String, String> data = <String, String>{
+    //  "D": D.toString(),
+    //  "PTS": pts.toString(),
+   // };
+
+    //Firestore.instance.collection('ALFCstanding').document()
+   //     .updateData(data);
 
 
-*/
+
+
+
+
+
 
 
   }
@@ -138,35 +144,43 @@ class _MyTeamListState extends State<TeamList>
 
 
 
-  int W,D,L,pts;
+
   //String pts;
 
   @override
   Widget build(BuildContext context) {
+
+
+
+
     return new Container(
+      padding: const EdgeInsets.only(right: 4.0 ,left: 4.0),
       decoration: new BoxDecoration( color: Color(0xFF00204A)),
       child:  new StreamBuilder<QuerySnapshot>(
-        stream: Firestore.instance.collection('ALFCstanding').orderBy('PTS').snapshots,
+        stream: Firestore.instance.collection('ALFCstanding').orderBy('W').snapshots,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot)
 
 
 
+
         {
-         if (!snapshot.hasData) return new Text('Loading...');
-          return new ListView(
-            children: snapshot.data.documents.map((DocumentSnapshot document) {
-              W = document['W']*3 ;
-              D = document['D']*1 ;
-              L = document['L']*0 ;
-              pts= W+D+L;
-
-              //Firestore.instance.collection('ALFCstanding').document()
-               //   .updateData({ 'W': W.toString() , 'pts': pts.toString() });
+         if (!snapshot.hasData) return  new ProgressHUD(
+           backgroundColor: Colors.black12,
+           color: Colors.white,
+           containerColor: Colors.blue,
+           borderRadius: 5.0,
+         );
 
 
+         return new Container(
 
-
-
+           child: new ListView(
+            children: snapshot.data.documents.map((DocumentSnapshot document)
+            {
+                  W = document['W']*3 ;
+                  D = document['D']*1 ;
+                  L = document['L']*0 ;
+                  pts= W+D+L;
 
               return new Padding(
                 padding: new EdgeInsets.only(left: 5.0,right:5.0),
@@ -178,17 +192,8 @@ class _MyTeamListState extends State<TeamList>
                   child: new Card(
                     child:Container(
                       decoration: new BoxDecoration( color: Color(0xFF005792),),
-
-
-
                       child: Row(
-
-
                         children: <Widget>[
-
-
-
-
 
                           new  Expanded(
                             child: new Text(document['name'],
@@ -241,7 +246,7 @@ class _MyTeamListState extends State<TeamList>
                           new Expanded(
 
 
-                              child: new Text(document['PTS'].toString(),
+                              child: new Text(pts.toString(),
                                 textAlign: TextAlign.center,
                                 overflow: TextOverflow.ellipsis,
                                 style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Color(0xFF00BBF0).withOpacity(1.0)),
@@ -259,6 +264,7 @@ class _MyTeamListState extends State<TeamList>
               );
             }).toList(),
 
+          ),
           );
         },
       ),

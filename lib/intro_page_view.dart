@@ -4,6 +4,7 @@ import 'intro_page_item.dart';
 import 'page_transformer.dart';
 import 'fixture.dart';
 import 'standing.dart';
+import 'teamselection.dart';
 
 
 
@@ -73,8 +74,8 @@ class IntroPageViewState extends State<IntroPageView> {
                            }
                         if (index == 2)
                         {
-                          //return Navigator.push(context, new MaterialPageRoute(
-                             // builder: (context) => new DataTableDemo()), );
+                          return Navigator.push(context, new MaterialPageRoute(
+                             builder: (context) => new TeamSelection()), );
                         }
                       },
 

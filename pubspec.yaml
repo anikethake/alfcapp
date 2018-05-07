@@ -11,6 +11,9 @@ dependencies:
   cloud_firestore:
   firebase_database:
   intl:
+  progress_hud:
+  utils:
+  firebase_core:
 
 dev_dependencies:
   flutter_test:

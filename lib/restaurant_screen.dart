@@ -5,10 +5,10 @@ import 'fixture.dart';
 
 final Screen restaurantScreen = new Screen(
     title: 'ALFC',
-    background: new DecorationImage(
-      image: new AssetImage('asseRts/wood_bk.jpg'),
-      fit: BoxFit.cover,
-    ),
+    //background: new DecorationImage(
+     // image: new AssetImage('assets/wood_bk.jpg'),
+    //  fit: BoxFit.cover,
+  //  ),
     contentBuilder: (BuildContext context) {
       return IntroPageView();
       
@@ -17,10 +17,10 @@ final Screen restaurantScreen = new Screen(
 
 final Screen fixtureScreen = new Screen(
     title: 'Fixtures',
-    background: new DecorationImage(
-      image: new AssetImage('asseRts/wood_bk.jpg'),
-      fit: BoxFit.cover,
-    ),
+    //background: new DecorationImage(
+     // image: new AssetImage('assets/wood_bk.jpg'),
+    //  fit: BoxFit.cover,
+    //),
     contentBuilder: (BuildContext context) {
       return Fixtures();
 
