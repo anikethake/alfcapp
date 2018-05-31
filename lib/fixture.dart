@@ -1,3 +1,5 @@
+//import 'package:alfcapp/intro_page_view.dart';
+import 'package:alfcapp/main.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
@@ -11,6 +13,7 @@ class Fixtures extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Fixture',
+
 
       home: new MyFixtures(),
     );
@@ -47,9 +50,21 @@ class _MyHomePageState extends State<MyFixtures> {
           child: new Text("Fixtures",
             style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 28.0,color: Color(0xFF42A5F5).withOpacity(1.0)),
           ),
+
         )),
       ),
       body: new TeamList(),
+      bottomNavigationBar: BottomAppBar(
+        color: Color(0xFF00204A),
+       child: ButtonBar(
+         children: <Widget>[
+           //Icon(Icons.schedule),
+         ],
+       ),
+
+       // child: ,
+      ),
+
 
     );
   }
@@ -64,7 +79,7 @@ class TeamList extends StatelessWidget {
     return new Container(
       decoration: new BoxDecoration( color: Color(0xFF00204A)),
       child:  new StreamBuilder<QuerySnapshot>(
-        stream: Firestore.instance.collection('ALFCdata').orderBy('matchdate').snapshots,
+        stream: Firestore.instance.collection('ALFCdata').orderBy('matchdate').snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
 
 
@@ -81,18 +96,20 @@ class TeamList extends StatelessWidget {
 
 
             children: snapshot.data.documents.map((DocumentSnapshot document) {
-             // DateTime now = new DateTime.now();
+              DateTime now = new DateTime.now();
               DateTime matchdate= document['matchdate'];
               var formatter = new DateFormat('dd-MM-yyyy');
               String formatted;
-              if (formatter.format(matchdate) == formatter.format(now))
+              if (formatter.format(now) == formatter.format(matchdate))
                 {
                   formatted = "Today";
 
                 }
-                else{
+                 else {
                 formatted= formatter.format(matchdate);
               }
+
+
 
               return new Padding(
                 padding: new EdgeInsets.all(8.0),
@@ -120,10 +137,11 @@ class TeamList extends StatelessWidget {
                           new  Expanded(
 
                             child: new Text(
+
                               formatted,
                               textAlign: TextAlign.center,
                               overflow: TextOverflow.ellipsis,
-                              style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 22.0,color: Color(0xFFD9FAFF).withOpacity(1.0)),),
+                              style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 18.0,color: Color(0xFFD9FAFF).withOpacity(1.0)),),
 
                           ),
 

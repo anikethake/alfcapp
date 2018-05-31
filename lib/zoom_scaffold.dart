@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'menu_screen.dart';
+//import 'menu_screen.dart';
 
 class ZoomScaffold extends StatefulWidget {
 
@@ -54,14 +54,25 @@ class _ZoomScaffoldState extends State<ZoomScaffold> with TickerProviderStateMix
                 icon: new Icon(Icons.menu),
                 onPressed: () {
                   menuController.toggle();
-                }
+                },
+
+
             ),
-            title: new Text(
-              widget.contentScreen.title,
-              style: new TextStyle(
-                fontFamily: 'bebas-neue',
-                fontSize: 25.0,
+            title: new Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: new Row(
+                children: <Widget>[
+                  new Text(
+                    widget.contentScreen.title,
+                    style: new TextStyle(
+                      fontFamily: 'bebas-neue',
+                      fontSize: 25.0,
+                    ),
+                  ),
+                  new RaisedButton.icon(onPressed: null,  icon: Icon(Icons.notifications,size: 20.0,), label: const Text('')),
+                ],
               ),
+
             ),
           ),
           body: widget.contentScreen.contentBuilder(context),

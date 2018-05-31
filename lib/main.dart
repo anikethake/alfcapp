@@ -1,3 +1,4 @@
+import 'package:alfcapp/intro_page_view.dart';
 import 'package:flutter/material.dart';
 import 'menu_screen.dart';
 import 'restaurant_screen.dart';
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: new MyHomePage(),
+
     );
   }
 }
@@ -60,9 +62,10 @@ class _MyHomePageState extends State<MyHomePage> {
           selectedMenuItemId = itemId;
           if (itemId == 'restaurant') {
             setState(() => activeScreen = restaurantScreen);
-          } if (itemId == 'fixtures') {
-            setState(() => activeScreen = fixtureScreen);
           }
+          //if (itemId == 'fixtures') {
+          //  setState(() => activeScreen = fixtureScreen);
+         // }
         },
       ),
       contentScreen: activeScreen,

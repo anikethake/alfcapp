@@ -157,7 +157,7 @@ class _MyTeamListState extends State<TeamList>
       padding: const EdgeInsets.only(right: 4.0 ,left: 4.0),
       decoration: new BoxDecoration( color: Color(0xFF00204A)),
       child:  new StreamBuilder<QuerySnapshot>(
-        stream: Firestore.instance.collection('ALFCstanding').orderBy('W').snapshots,
+        stream : Firestore.instance.collection('ALFCstanding').orderBy('W').snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot)
 
 

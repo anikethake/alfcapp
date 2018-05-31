@@ -5,6 +5,7 @@ import 'fixture.dart';
 
 final Screen restaurantScreen = new Screen(
     title: 'ALFC',
+
     //background: new DecorationImage(
      // image: new AssetImage('assets/wood_bk.jpg'),
     //  fit: BoxFit.cover,
@@ -15,17 +16,17 @@ final Screen restaurantScreen = new Screen(
     }
 );
 
-final Screen fixtureScreen = new Screen(
-    title: 'Fixtures',
+//final Screen fixtureScreen = new Screen(
+   // title: 'Fixtures',
     //background: new DecorationImage(
      // image: new AssetImage('assets/wood_bk.jpg'),
     //  fit: BoxFit.cover,
     //),
-    contentBuilder: (BuildContext context) {
-      return Fixtures();
+ //   contentBuilder: (BuildContext context) {
+  //    return Fixtures();
 
-    }
-);
+ //   }
+//);
 
 
 
