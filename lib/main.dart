@@ -1,74 +1,66 @@
-import 'package:alfcapp/intro_page_view.dart';
 import 'package:flutter/material.dart';
-import 'menu_screen.dart';
-import 'restaurant_screen.dart';
-import 'zoom_scaffold.dart';
+import 'home_page.dart';
+import 'twopanels.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(new MyApp());
+void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+  runApp(new MaterialApp(
+    debugShowCheckedModeBanner: false,
+    theme: new ThemeData(primarySwatch: Colors.teal),
+    home: new BackdropPage(),
+  ));
+}
 
-class MyApp extends StatelessWidget {
+class BackdropPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Zoom Menu',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: new MyHomePage(),
+  _BackdropPageState createState() => new _BackdropPageState();
+}
 
-    );
+class _BackdropPageState extends State<BackdropPage>
+    with SingleTickerProviderStateMixin {
+  AnimationController controller;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller = new AnimationController(
+        vsync: this, duration: new Duration(milliseconds: 100), value: 1.0);
   }
-}
 
-class MyHomePage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
-}
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    controller.dispose();
+  }
 
-class _MyHomePageState extends State<MyHomePage> {
-
-  final menu = new Menu(
-    items: [
-      new MenuItem(
-        id: 'restaurant',
-        title: 'Home',
-      ),
-      new MenuItem(
-        id: 'fixtures',
-        title: 'Fixtures',
-      ),
-      new MenuItem(
-        id: 'other2',
-        title: 'Standings',
-      ),
-
-      new MenuItem(
-        id: 'return',
-        title: 'Return' ,
-      ),
-    ],
-  );
-
-  var selectedMenuItemId = 'restaurant';
-  var activeScreen = restaurantScreen;
+  bool get isPanelVisible {
+    final AnimationStatus status = controller.status;
+    return status == AnimationStatus.completed ||
+        status == AnimationStatus.forward;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return new ZoomScaffold(
-      menuScreen: new MenuScreen(
-        menu: menu,
-        selectedItemId: selectedMenuItemId,
-        onMenuItemSelected: (String itemId) {
-          selectedMenuItemId = itemId;
-          if (itemId == 'restaurant') {
-            setState(() => activeScreen = restaurantScreen);
-          }
-          //if (itemId == 'fixtures') {
-          //  setState(() => activeScreen = fixtureScreen);
-         // }
-        },
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("Backdrop"),
+        elevation: 0.0,
+        leading: new IconButton(
+          onPressed: () {
+            controller.fling(velocity: isPanelVisible ? -1.0 : 1.0);
+          },
+          icon: new AnimatedIcon(
+            icon: AnimatedIcons.close_menu,
+            progress: controller.view,
+          ),
+        ),
       ),
-      contentScreen: activeScreen,
+      body: new TwoPanels(
+        controller: controller,
+      ),
     );
   }
 }
