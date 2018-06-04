@@ -115,7 +115,7 @@ class TeamList extends StatelessWidget {
                 padding: new EdgeInsets.all(8.0),
                 child: SizedBox(
 
-                  height: 155.0,
+                  height: 120.0,
 
 
                   child:  new Card(

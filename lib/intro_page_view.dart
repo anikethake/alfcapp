@@ -1,3 +1,4 @@
+import 'package:alfcapp/news.dart';
 import 'package:flutter/material.dart';
 import 'page_data.dart';
 import 'intro_page_item.dart';
@@ -77,6 +78,13 @@ class IntroPageViewState extends State<IntroPageView> {
                           return Navigator.push(context, new MaterialPageRoute(
                              builder: (context) => new teamlist()), );
                         }
+                        if (index == 3)
+                        {
+                          return Navigator.push(context, new MaterialPageRoute(
+                              builder: (context) => new news()), );
+                        }
+
+
                       },
 
 

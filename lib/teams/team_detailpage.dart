@@ -1,10 +1,9 @@
-import 'package:alfcapp/teams/team_detailpage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 //void main() => runApp(new MyApp());
 
-class teams extends StatelessWidget {
+class team_detailpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -65,10 +64,13 @@ class teamlist extends StatelessWidget {
             return new ListView(
               children: snapshot.data.documents.map((document) {
                 return new ListTile(
-                  title: new Text(document['team name']),
-
-                  //onTap: Navigator.push(context, new MaterialPageRoute(builder: (context) => new team_detailpage()),),
-
+                  title: new Card(
+                    child: new Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: new Center(child: new Text(document['team name'])),
+                    ),
+                  ),
+                  onTap: null,
 
                 );
               }).toList(),
