@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:alfcapp/teams/team_detailpage.dart';
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+//import 'home_page.dart';
 import 'twopanels.dart';
 import 'package:flutter/services.dart';
 
@@ -48,22 +48,36 @@ class _BackdropPageState extends State<BackdropPage>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Center(child: new Text("ALFC")),
-        backgroundColor: Color(0xFF005792),
-        elevation: 0.0,
-        leading: new IconButton(
-          onPressed: () {
-            controller.fling(velocity: isPanelVisible ? -1.0 : 1.0);
-          },
-          icon: new AnimatedIcon(
-            icon: AnimatedIcons.close_menu,
-            progress: controller.view,
+      backgroundColor:Color(0xFF240629),
+
+      body: new Column(
+        children: <Widget>[
+          new Padding(
+            padding: const EdgeInsets.only(top: 22.0),
+            child: new SafeArea(
+              child: new AppBar(
+                title: new SafeArea(child: new Container(child: new Center(child: new Text("ALFC")))),
+                backgroundColor: Color(0xFF781336),
+                elevation: 0.0,
+                leading: new IconButton(
+                  onPressed: () {
+                    controller.fling(velocity: isPanelVisible ? -1.0 : 1.0);
+                  },
+                  icon: new AnimatedIcon(
+                    icon: AnimatedIcons.close_menu,
+                    progress: controller.view,
+                    ),
+                  ),
+                ),
+            ),
           ),
-        ),
-      ),
-      body: new TwoPanels(
-        controller: controller,
+
+          new Expanded(
+            child: new TwoPanels(
+              controller: controller,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -82,13 +96,20 @@ class MyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Center(
-          child: new Text(
-            'Select Competition',
-            style: new TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 26.0,
-                color: Colors.white.withOpacity(1.0)),
+
+        title: new SafeArea(
+          child: new Container(
+            margin: MediaQuery.of(context).padding,
+            child: new Center(
+
+              child: new Text(
+                'Select Competition',
+                style: new TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 26.0,
+                    color: Colors.white.withOpacity(1.0)),
+              ),
+            ),
           ),
         ),
         backgroundColor: new Color(0xFF005792),
@@ -112,7 +133,7 @@ class MyCard extends StatelessWidget {
                 children: <Widget>[
                   new InkWell(
                       child: new SizedBox(
-                        height: 220.0,
+                        height: 120.0,
                         child: new Card(
                           color: Colors.lightGreen,
                           child: Row(

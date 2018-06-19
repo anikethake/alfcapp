@@ -86,18 +86,7 @@ class IntroPageItem extends StatelessWidget {
       ),
     );
 
-    final imageOverlayGradient = new DecoratedBox(
-      decoration: new BoxDecoration(
-        gradient: new LinearGradient(
-          begin: FractionalOffset.bottomCenter,
-          end: FractionalOffset.topCenter,
-          colors: [
-            const Color(0xFF000000),
-            const Color(0x00000000),
-          ],
-        ),
-      ),
-    );
+
 
     return new Padding(
       padding: const EdgeInsets.symmetric(
@@ -105,13 +94,15 @@ class IntroPageItem extends StatelessWidget {
         horizontal: 8.0,
       ),
       child: new Material(
+
+
         elevation: 4.0,
         borderRadius: new BorderRadius.circular(8.0),
         child: new Stack(
           fit: StackFit.expand,
           children: [
-            image,
-            imageOverlayGradient,
+            new Center(child: image),
+
             _buildTextContainer(context),
           ],
         ),

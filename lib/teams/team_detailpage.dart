@@ -67,7 +67,7 @@ class teamlist extends StatelessWidget {
                   title: new Card(
                     child: new Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: new Center(child: new Text(document['team name'])),
+                      child: new Center(child: new Text(document['player 1'])),
                     ),
                   ),
                   onTap: null,

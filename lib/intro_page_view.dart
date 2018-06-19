@@ -39,14 +39,14 @@ class IntroPageViewState extends State<IntroPageView> {
       body: 
 
       new Container(
-         decoration: new BoxDecoration( color: Color(0xFF00204A)),
+         decoration: new BoxDecoration( color: Color(0xFF240629)),
         child: new Center(
           child: new SizedBox.fromSize(
-            size: const Size.fromHeight(600.0),
+            size: const Size.fromHeight(550.0),
             child: new PageTransformer(
               pageViewBuilder: (context, visibilityResolver) {
                 return new PageView.builder(
-                  controller: new PageController(viewportFraction: 0.85),
+                  controller: new PageController(viewportFraction: 0.80),
                   itemCount: sampleItems.length,
                   itemBuilder: (context, index) {
                     final item = sampleItems[index];
@@ -76,7 +76,7 @@ class IntroPageViewState extends State<IntroPageView> {
                         if (index == 2)
                         {
                           return Navigator.push(context, new MaterialPageRoute(
-                             builder: (context) => new teamlist()), );
+                             builder: (context) => new teamlistpage()), );
                         }
                         if (index == 3)
                         {

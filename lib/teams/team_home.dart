@@ -1,82 +1,94 @@
-import 'package:alfcapp/teams/team_detailpage.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-
-//void main() => runApp(new MyApp());
-
-class teams extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Flutter Demo',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: new MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => new _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  void initState() {
-//    Firestore.instance.collection('mountains').document()
-//        .setData({ 'title': 'Mount Baker', 'type': 'volcano' });
-
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Home"),
-        ),
-        body: new Column(
-          children: <Widget>[
-            new Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: new teamlist(),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class teamlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Material(
-
-      child: new Center(
-        child: new StreamBuilder(
-          stream: Firestore.instance.collection('ALFCteams').snapshots(),
-          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (!snapshot.hasData) return new Text('Loading...');
-            return new ListView(
-              children: snapshot.data.documents.map((document) {
-                return new ListTile(
-                  title: new Text(document['team name']),
-
-                  //onTap: Navigator.push(context, new MaterialPageRoute(builder: (context) => new team_detailpage()),),
-
-
-                );
-              }).toList(),
-            );
+    return new StreamBuilder<QuerySnapshot>(
+      stream: Firestore.instance.collection('ALFCteams').snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (!snapshot.hasData) return const Text('Loading...');
+        final int messageCount = snapshot.data.documents.length;
+        return new ListView.builder(
+          itemCount: messageCount,
+          itemBuilder: (_, int index) {
+            final DocumentSnapshot document = snapshot.data.documents[index];
+            return new InkWell(
+                child: new ListTile(
+                    key: new ValueKey(document.documentID),
+                  title: new Text(document['name'] ?? '<No message retrieved>'),
+                ),
+                onTap: () {
+                  return Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) => new playerlistpage(_,index)));
+                });
           },
+        );
+      },
+    );
+  }
+}
+
+class teamlistpage extends StatelessWidget {
+  teamlistpage();
+
+  CollectionReference get players => Firestore.instance.collection('ALFCteams');
+
+  Future<Null> _addMessage() async {
+    final DocumentReference document = players.document();
+    document.setData(<String, dynamic>{
+      'playername': 'Hello world!',
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: const Text('Teams'),
         ),
+        body: new Material(child: new teamlist()),
       ),
     );
   }
 }
 
+class playerlistpage extends StatelessWidget {
+  playerlistpage(_,indexnew);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return new StreamBuilder<QuerySnapshot>(
+      stream: Firestore.instance.collection('ALFCteams').snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (!snapshot.hasData) return const Text('Loading...');
+        final int messageCount = snapshot.data.documents.length;
+        return new ListView.builder(
+
+          itemCount: messageCount,
+          itemBuilder: (_,indexnew) {
+            final DocumentSnapshot document = snapshot.data.documents[indexnew];
+            return new InkWell(
+                child: new ListTile(
+                    key: new ValueKey(document.documentID),
+                  title: new Text(document['playername'] ?? '<No message retrieved>'),
+                ),
+                onTap: () {
+                  return Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) => null));
+                });
+          },
+        );
+      },
+    );
+  }
+}
