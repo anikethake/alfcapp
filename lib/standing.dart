@@ -33,74 +33,81 @@ class _MyHomePageState extends State<MyStanding> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        backgroundColor: Color(0xFF00204A),
 
-        title: new Center(child: new Padding(
-          padding: const EdgeInsets.only(left: 2.0,right: 2.0),
-          child: new Row(
-            children: <Widget>[
-              new  Expanded(
-                child: new Text('Team',
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Color(0xFF00BBF0).withOpacity(1.0)),),
+      body:
 
-              ),
-              new  Expanded(
-                child: new Text('W',
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Color(0xFF00BBF0).withOpacity(1.0)),),
+      new Container(
+        color: Color(0xFF009688),
+        child: new Column(
+          children: <Widget>[
+            new SafeArea(
+              child: new AppBar(
+                backgroundColor: Color(0xFFCDDC39),
 
-              ),
-              new  Expanded(
-                child: new Text('D',
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Color(0xFF00BBF0).withOpacity(1.0)),),
+                title: new Center(child: new Padding(
+                    padding: const EdgeInsets.only(left: 2.0,right: 2.0),
+                    child: new Row(
+                        children: <Widget>[
+                          new  Expanded(
+                            child: new Text('Team',
+                                              textAlign: TextAlign.center,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Colors.white.withOpacity(1.0)),),
 
-              ),
-              new  Expanded(
-                child: new Text('L',
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Color(0xFF00BBF0).withOpacity(1.0)),),
+                            ),
+                          new  Expanded(
+                            child: new Text('W',
+                                              textAlign: TextAlign.center,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Colors.white.withOpacity(1.0)),),
 
-              ),
-              new  Expanded(
-                child: new Text('GP',
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Color(0xFF00BBF0).withOpacity(1.0)),),
+                            ),
+                          new  Expanded(
+                            child: new Text('D',
+                                              textAlign: TextAlign.center,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Colors.white.withOpacity(1.0)),),
 
-              ),
+                            ),
+                          new  Expanded(
+                            child: new Text('L',
+                                              textAlign: TextAlign.center,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Colors.white.withOpacity(1.0)),),
 
-              new Expanded(
-                  child: new Text('GF',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Color(0xFF00BBF0).withOpacity(1.0)),
-                  )),
-              new Expanded(
-                  child: new Text('GA',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Color(0xFF00BBF0).withOpacity(1.0)),
-                  )),
-              new Expanded(
-                  child: new Text('PTS',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Color(0xFF00BBF0).withOpacity(1.0)),
-                  )),
+                            ),
+                          new  Expanded(
+                            child: new Text('MP',
+                                              textAlign: TextAlign.center,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Colors.white.withOpacity(1.0)),),
 
-            ]
-          )
+                            ),
 
-        )),
+                          new Expanded(
+                              child: new Text('GD',
+                                                textAlign: TextAlign.center,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Colors.white.withOpacity(1.0)),
+                                              )),
+
+                          new Expanded(
+                              child: new Text('PTS',
+                                                textAlign: TextAlign.center,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Colors.white.withOpacity(1.0)),
+                                              )),
+
+                        ]
+                        )
+
+                    )),
+                ),
+            ),
+            new Expanded(child: new TeamList()),
+          ],
+        ),
       ),
-      body: new TeamList(),
 
     );
   }
@@ -155,7 +162,7 @@ class _MyTeamListState extends State<TeamList>
 
     return new Container(
       padding: const EdgeInsets.only(right: 4.0 ,left: 4.0),
-      decoration: new BoxDecoration( color: Color(0xFF00204A)),
+      decoration: new BoxDecoration( color: Color(0xFF009688)),
       child:  new StreamBuilder<QuerySnapshot>(
         stream : Firestore.instance.collection('ALFCstanding').orderBy('W').snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot)
@@ -184,82 +191,65 @@ class _MyTeamListState extends State<TeamList>
 
               return new Padding(
                 padding: new EdgeInsets.only(left: 5.0,right:5.0),
-                child: new Container(
+                child: Row(
+                  children: <Widget>[
 
-                child: SizedBox(
-                  height: 50.0,
+                    new  Expanded(
+                      child: new Text(document['name'],
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
 
-                  child: new Card(
-                    child:Container(
-                      decoration: new BoxDecoration( color: Color(0xFF005792),),
-                      child: Row(
-                        children: <Widget>[
-
-                          new  Expanded(
-                            child: new Text(document['name'],
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Color(0xFFD9FAFF).withOpacity(1.0)),),
-
-                          ),
-                          new  Expanded(
-                            child: new Text(document['W'].toString(),
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Color(0xFFD9FAFF).withOpacity(1.0)),),
-
-                          ),
-                          new  Expanded(
-                            child: new Text(document['D'].toString(),
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Color(0xFFD9FAFF).withOpacity(1.0)),),
-
-                          ),
-                          new  Expanded(
-                            child: new Text(document['L'].toString(),
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Color(0xFFD9FAFF).withOpacity(1.0)),),
-
-                          ),
-                          new  Expanded(
-                            child: new Text(document['GP'].toString(),
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Color(0xFFD9FAFF).withOpacity(1.0)),),
-
-                          ),
-
-                          new Expanded(
-                            child: new Text(document['GF'].toString(),
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Color(0xFFD9FAFF).withOpacity(1.0)),
-                          )),
-                          new Expanded(
-                              child: new Text(document['GA'].toString(),
-                                textAlign: TextAlign.center,
-                                overflow: TextOverflow.ellipsis,
-                                style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Color(0xFFD9FAFF).withOpacity(1.0)),
-                              )),
-                          new Expanded(
-
-
-                              child: new Text(pts.toString(),
-                                textAlign: TextAlign.center,
-                                overflow: TextOverflow.ellipsis,
-                                style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Color(0xFF00BBF0).withOpacity(1.0)),
-                              )),
-
-
-
-
-                        ],
-                      ),
                     ),
-                  ),
-                ),
+                    new  Expanded(
+                      child: new Text(document['W'].toString(),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+
+                    ),
+                    new  Expanded(
+                      child: new Text(document['D'].toString(),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+
+                    ),
+                    new  Expanded(
+                      child: new Text(document['L'].toString(),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+
+                    ),
+                    new  Expanded(
+                      child: new Text(document['MP'].toString(),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+
+                    ),
+
+                    new Expanded(
+                      child: new Text(document['GD'].toString(),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),
+                    )),
+
+                    new Expanded(
+
+
+                        child: new Text(pts.toString(),
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),
+                        )),
+
+
+
+
+                  ],
                 ),
               );
             }).toList(),

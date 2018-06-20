@@ -343,9 +343,9 @@ class _fixopenState extends State<fixopen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                Text(
-                  'Team A',
-                  style: TextStyle(color: Colors.white, fontSize: 12.0),
+                Text('text'
+                  ,
+                  style: TextStyle(color: Colors.white, fontSize: 22.0),
                 ),
                 Text(
                   '1',
@@ -391,7 +391,7 @@ class _fixopenState extends State<fixopen> {
                       .map((DocumentSnapshot document) {
                     return new Card(
                       color: Colors.green,
-                      child:new Text(document['team1'],style: TextStyle(color: Colors.black87,fontSize: 12.0)),
+                      child:new Text(document['team1'],style: TextStyle(color: Colors.black87,fontSize: 22.0)),
 
                     );
                   }).toList();

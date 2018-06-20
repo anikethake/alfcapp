@@ -96,23 +96,26 @@ class MyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
+          backgroundColor: Color(0xFF781336),
 
         title: new SafeArea(
           child: new Container(
             margin: MediaQuery.of(context).padding,
+
             child: new Center(
 
               child: new Text(
                 'Select Competition',
                 style: new TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 26.0,
+                    fontSize: 30.0,
+                    fontFamily: "Open Sans Condensed",
                     color: Colors.white.withOpacity(1.0)),
               ),
             ),
           ),
         ),
-        backgroundColor: new Color(0xFF005792),
+       // backgroundColor: new Color(0xFF005792),
       ),
       bottomNavigationBar: BottomAppBar(
         color: Color(0xFF00204A),
@@ -135,7 +138,7 @@ class MyCard extends StatelessWidget {
                       child: new SizedBox(
                         height: 120.0,
                         child: new Card(
-                          color: Colors.lightGreen,
+                          color: Color(0xFFEA6056),
                           child: Row(
                             children: <Widget>[
                               new Padding(
@@ -145,11 +148,12 @@ class MyCard extends StatelessWidget {
                               new Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: new Text(
-                                  'Aurangabad \n League \n Football \n Championship',
+                                  'Aurangabad League \n Football Championship',
                                   style: new TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 24.0,
-                                      color: Colors.white.withOpacity(0.7)),
+                                      fontFamily: "Poppins",
+                                      fontSize: 17.0,
+                                      color: Colors.white.withOpacity(1.0)),
                                 ),
                               ),
                             ],
@@ -160,7 +164,7 @@ class MyCard extends StatelessWidget {
                         Navigator.push(
                           context,
                           new MaterialPageRoute(
-                              builder: (context) => new SplashScreen()),
+                              builder: (context) => new BackdropPage()),
                         );
                       }),
                 ],
@@ -171,9 +175,9 @@ class MyCard extends StatelessWidget {
                 children: <Widget>[
                   new InkWell(
                       child: new SizedBox(
-                        height: 220.0,
+                        height: 120.0,
                         child: new Card(
-                          color: Colors.green,
+                          color:  Color(0xFFEEAA46),
                           child: Row(
                             children: <Widget>[
                               new Padding(
@@ -183,11 +187,12 @@ class MyCard extends StatelessWidget {
                               new Padding(
                                 padding: const EdgeInsets.all(2.0),
                                 child: new Text(
-                                  'Aurangabad\'s\n5 on 5',
+                                  'Aurangabad\'s 5 on 5',
                                   style: new TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 24.0,
-                                      color: Colors.white.withOpacity(0.7)),
+                                      fontFamily: "Poppins",
+                                      fontSize: 17.0,
+                                      color: Colors.white.withOpacity(1.0)),
                                 ),
                               ),
                             ],
@@ -212,13 +217,14 @@ class MyCard extends StatelessWidget {
                 ],
               ),
             ),
+
             new Column(
               children: <Widget>[
                 new InkWell(
                     child: new SizedBox(
-                      height: 220.0,
+                      height: 120.0,
                       child: new Card(
-                        color: Colors.lightGreen,
+                        color: Color(0xFF4ED0C4),
                         child: Row(
                           children: <Widget>[
                             new Padding(
@@ -231,8 +237,9 @@ class MyCard extends StatelessWidget {
                                 '11-a side\nknock-out\ntournament',
                                 style: new TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 24.0,
-                                    color: Colors.white.withOpacity(0.7)),
+                                    fontFamily: "Poppins",
+                                    fontSize: 17.0,
+                                    color: Colors.white.withOpacity(1.0)),
                               ),
                             ),
                           ],
@@ -256,6 +263,147 @@ class MyCard extends StatelessWidget {
                     }),
               ],
             ),
+            new Center(
+              child: new Column(
+                children: <Widget>[
+                  new InkWell(
+                      child: new SizedBox(
+                        height: 120.0,
+                        child: new Card(
+                          color:  Color(0xFF795548),
+                          child: Row(
+                            children: <Widget>[
+                              new Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: new Image.asset('assets/otherlogo.png'),
+                                ),
+                              new Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: new Text(
+                                  'Coming Soon',
+                                  style: new TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "Poppins",
+                                      fontSize: 17.0,
+                                      color: Colors.white.withOpacity(1.0)),
+                                  ),
+                                ),
+                            ],
+                            ),
+                          ),
+                        ),
+                      onTap: () {
+                        showModalBottomSheet<void>(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return new Container(
+                                  child: new Padding(
+                                      padding: const EdgeInsets.all(32.0),
+                                      child: new Text('Coming Soon...',
+                                                          textAlign: TextAlign.center,
+                                                          style: new TextStyle(
+                                                              color:
+                                                              Theme.of(context).accentColor,
+                                                              fontSize: 24.0))));
+                            });
+                      }),
+                ],
+                ),
+              ),
+            new Center(
+              child: new Column(
+                children: <Widget>[
+                  new InkWell(
+                      child: new SizedBox(
+                        height: 120.0,
+                        child: new Card(
+                          color:  Color(0xFF20113A),
+                          child: Row(
+                            children: <Widget>[
+                              new Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: new Image.asset('assets/otherlogo.png'),
+                                ),
+                              new Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: new Text(
+                                  'Coming Soon',
+                                  style: new TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "Poppins",
+                                      fontSize: 17.0,
+                                      color: Colors.white.withOpacity(1.0)),
+                                  ),
+                                ),
+                            ],
+                            ),
+                          ),
+                        ),
+                      onTap: () {
+                        showModalBottomSheet<void>(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return new Container(
+                                  child: new Padding(
+                                      padding: const EdgeInsets.all(32.0),
+                                      child: new Text('Coming Soon...',
+                                                          textAlign: TextAlign.center,
+                                                          style: new TextStyle(
+                                                              color:
+                                                              Theme.of(context).accentColor,
+                                                              fontSize: 24.0))));
+                            });
+                      }),
+                ],
+                ),
+              ),
+            new Center(
+              child: new Column(
+                children: <Widget>[
+                  new InkWell(
+                      child: new SizedBox(
+                        height: 120.0,
+                        child: new Card(
+                          color:  Color(0xFF240629),
+                          child: Row(
+                            children: <Widget>[
+                              new Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: new Image.asset('assets/otherlogo.png'),
+                                ),
+                              new Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: new Text(
+                                  'Coming Soon',
+                                  style: new TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "Poppins",
+                                      fontSize: 17.0,
+                                      color: Colors.white.withOpacity(1.0)),
+                                  ),
+                                ),
+                            ],
+                            ),
+                          ),
+                        ),
+                      onTap: () {
+                        showModalBottomSheet<void>(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return new Container(
+                                  child: new Padding(
+                                      padding: const EdgeInsets.all(32.0),
+                                      child: new Text('Coming Soon...',
+                                                          textAlign: TextAlign.center,
+                                                          style: new TextStyle(
+                                                              color:
+                                                              Theme.of(context).accentColor,
+                                                              fontSize: 24.0))));
+                            });
+                      }),
+                ],
+                ),
+              ),
           ],
         ),
       ),
