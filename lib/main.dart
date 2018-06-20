@@ -95,41 +95,11 @@ class MyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-          backgroundColor: Color(0xFF781336),
 
-        title: new SafeArea(
-          child: new Container(
-            margin: MediaQuery.of(context).padding,
-
-            child: new Center(
-
-              child: new Text(
-                'Select Competition',
-                style: new TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30.0,
-                    fontFamily: "Open Sans Condensed",
-                    color: Colors.white.withOpacity(1.0)),
-              ),
-            ),
-          ),
-        ),
-       // backgroundColor: new Color(0xFF005792),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Color(0xFF00204A),
-        child: ButtonBar(
-          children: <Widget>[
-            //Icon(Icons.schedule),
-          ],
-        ),
-
-        // child: ,
-      ),
       body: new Container(
         child: new ListView(
           children: <Widget>[
+
             new Container(
               // decoration: new BoxDecoration( color: Color(0xFF005792),),
               child: new Column(

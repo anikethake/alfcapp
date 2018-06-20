@@ -15,6 +15,7 @@ dependencies:
   utils:
   firebase_core:
   url_launcher:
+  flutter_staggered_grid_view:
 
 dev_dependencies:
   flutter_test:
