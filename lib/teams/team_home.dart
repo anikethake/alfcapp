@@ -137,6 +137,7 @@ class playerscreen extends StatelessWidget {
                       ),
                     ),
                   ),
+
                 new Expanded(
                   child: new ListView(
                     children:
@@ -164,19 +165,20 @@ class playerscreen extends StatelessWidget {
                                   child: new Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: new Text(
-                                      'Team Players',
+                                      'TEAM PLAYERS',
                                       textAlign: TextAlign.center,
                                       overflow: TextOverflow.ellipsis,
                                       style: new TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16.0,
+                                          fontSize: 20.0,
                                           color: Color(0xFF333333)
-                                              .withOpacity(1.0)),
+                                              .withOpacity(1.0),
+                                          fontFamily: 'SourceSansPro'),
                                       ),
                                     ),
                                   ),
                                 new Padding(
-                                  padding: const EdgeInsets.only(top:2.0),
+                                  padding: const EdgeInsets.only(top:8.0),
                                   child: Container(
                                     color: Colors.black87,
                                     width: 250.0,
@@ -268,9 +270,10 @@ playerscard(context, document1,indexoff, indexj, indexy,indexr) {
         textAlign: TextAlign.center,
         overflow: TextOverflow.ellipsis,
         style: new TextStyle(
-            fontWeight: FontWeight.bold,
+            //fontWeight: FontWeight.bold,
             fontSize: 16.0,
-            color: Color(0xFF333333).withOpacity(1.0)),
+            color: Color(0xFF333333).withOpacity(1.0)
+            ,fontFamily: 'SourceSansPro'),
       ),
     ),
     onTap: () {
@@ -278,7 +281,7 @@ playerscard(context, document1,indexoff, indexj, indexy,indexr) {
           context: context,
           builder: (BuildContext context) {
             return new Container(
-                height: 250.0,
+                height: 300.0,
                 color: Color(0xFFFFEB3B),
                 child: new Column(
                   children: <Widget>[
@@ -287,9 +290,13 @@ playerscard(context, document1,indexoff, indexj, indexy,indexr) {
                         child: new Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
+                            Container(
+                              height:80.0,
+                                child: Image.asset('assets/anon.png')),
+
                             new Padding(
                               padding: const EdgeInsets.all(18.0),
-                              child: new Text(document1[indexoff]),
+                              child: new Text(document1[indexoff],style: TextStyle(fontFamily: 'SourceSansPro',fontSize: 16.0)),
                             ),
                             new Padding(
                               padding: const EdgeInsets.all(8.0),

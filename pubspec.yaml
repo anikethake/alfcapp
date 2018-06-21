@@ -42,6 +42,19 @@ flutter:
     - assets/logo.png
     - assets/otherlogo.png
     - assets/splashcreen.png
+    - assets/ultimate.jpg
+    - assets/ACHEIVER.jpg
+    - assets/aloft.jpg
+    - assets/ayyan_logo.png
+    - assets/bag.png
+    - assets/malik.jpg
+    - assets/modern.png
+    - assets/ms.jpg
+    - assets/deluxe.png
+    - assets/anon.png
+    - assets/logo_blah.png
+
+
 
 
 
@@ -56,12 +69,38 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-#     fonts:
-#       - asset: fonts/MadrasExtraBoldItalic.ttf
+  fonts:
+    - family: Open Sans Condensed
+      fonts:
+        - asset: assets/fonts/OpenSansCondensed-Light.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+    - family: JosefinSans
+      fonts:
+        - asset: assets/fonts/JosefinSans-Regular.ttf
+    - family: Ubuntu
+      fonts:
+        - asset: assets/fonts/Ubuntu-Regular.ttf
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+        #- asset: assets/fonts/OpenSans-Bold.ttf
+         # style: bold
+    - family: OpenSansCondensed
+      fonts:
+        - asset: assets/fonts/OpenSansCondensed-Bold.ttf
+       #   style: bold
+      #  - asset: assets/fonts/OpenSansCondensed-Light.ttf
+       #   style: light
+    - family: SourceSansPro
+      fonts:
+        - asset: assets/fonts/SourceSansPro-Regular.ttf
+
+
+
   #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

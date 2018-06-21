@@ -56,7 +56,7 @@ class _BackdropPageState extends State<BackdropPage>
             padding: const EdgeInsets.only(top: 22.0),
             child: new SafeArea(
               child: new AppBar(
-                title: new SafeArea(child: new Container(child: new Center(child: new Text("ALFC")))),
+                title: new SafeArea(child: new Container(child: new Text("A L F C",style:TextStyle(fontFamily: "Open Sans Condensed",fontSize: 32.0),))),
                 backgroundColor: Color(0xFF781336),
                 elevation: 0.0,
                 leading: new IconButton(
@@ -68,6 +68,14 @@ class _BackdropPageState extends State<BackdropPage>
                     progress: controller.view,
                     ),
                   ),
+                actions: <Widget>[
+                  IconButton(
+                    icon:new Icon(Icons.notifications),
+                    onPressed: (){
+                     // null
+                    },
+                  )
+                ],
                 ),
             ),
           ),
@@ -97,8 +105,14 @@ class MyCard extends StatelessWidget {
     return new Scaffold(
 
       body: new Container(
+        color: Color(0xFF2F0536),
         child: new ListView(
           children: <Widget>[
+            AppBar(
+
+              title: Text('Select Competition'),
+              backgroundColor: Color(0xFF781336),
+            ),
 
             new Container(
               // decoration: new BoxDecoration( color: Color(0xFF005792),),
@@ -152,7 +166,10 @@ class MyCard extends StatelessWidget {
                             children: <Widget>[
                               new Padding(
                                 padding: const EdgeInsets.all(2.0),
-                                child: new Image.asset('assets/otherlogo.png'),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: new Image.asset('assets/logo_blah.png'),
+                                ),
                               ),
                               new Padding(
                                 padding: const EdgeInsets.all(2.0),
@@ -199,7 +216,10 @@ class MyCard extends StatelessWidget {
                           children: <Widget>[
                             new Padding(
                               padding: const EdgeInsets.all(2.0),
-                              child: new Image.asset('assets/otherlogo.png'),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: new Image.asset('assets/logo_blah.png'),
+                              ),
                             ),
                             new Padding(
                               padding: const EdgeInsets.all(2.0),
@@ -245,7 +265,10 @@ class MyCard extends StatelessWidget {
                             children: <Widget>[
                               new Padding(
                                 padding: const EdgeInsets.all(2.0),
-                                child: new Image.asset('assets/otherlogo.png'),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: new Image.asset('assets/logo_blah.png'),
+                                ),
                                 ),
                               new Padding(
                                 padding: const EdgeInsets.all(2.0),
@@ -292,7 +315,10 @@ class MyCard extends StatelessWidget {
                             children: <Widget>[
                               new Padding(
                                 padding: const EdgeInsets.all(2.0),
-                                child: new Image.asset('assets/otherlogo.png'),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: new Image.asset('assets/logo_blah.png'),
+                                ),
                                 ),
                               new Padding(
                                 padding: const EdgeInsets.all(2.0),
@@ -339,7 +365,7 @@ class MyCard extends StatelessWidget {
                             children: <Widget>[
                               new Padding(
                                 padding: const EdgeInsets.all(2.0),
-                                child: new Image.asset('assets/otherlogo.png'),
+                                child: new Image.asset('assets/logo_blah.png'),
                                 ),
                               new Padding(
                                 padding: const EdgeInsets.all(2.0),

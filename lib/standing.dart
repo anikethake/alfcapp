@@ -164,7 +164,7 @@ class _MyTeamListState extends State<TeamList>
       padding: const EdgeInsets.only(right: 4.0 ,left: 4.0),
       decoration: new BoxDecoration( color: Color(0xFF009688)),
       child:  new StreamBuilder<QuerySnapshot>(
-        stream : Firestore.instance.collection('ALFCstanding').orderBy('W').snapshots(),
+        stream : Firestore.instance.collection('ALFCstanding').orderBy('PTS').snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot)
 
 
@@ -240,7 +240,7 @@ class _MyTeamListState extends State<TeamList>
                     new Expanded(
 
 
-                        child: new Text(pts.toString(),
+                        child: new Text(document['PTS'].toString(),
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),

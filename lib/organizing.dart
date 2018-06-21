@@ -4,60 +4,464 @@ import 'package:flutter/material.dart';
 class organizingteam extends StatelessWidget {
   @override
   Widget build (BuildContext context) => new Scaffold(
-
-    //App Bar
-
-
-    //Content of tabs
-
-
-
-    body:
-
-    new Container(
-      decoration: new BoxDecoration(color: Colors.indigo),
+    body:new Container(
+      decoration: new BoxDecoration(color: Color(0xFF240629)),
       child:
       Center(
-        child: new Container(
-          //decoration: new BoxDecoration( color: Color(0xFF005792),),
-
-          child: new Column(
-
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
+        child: SafeArea(
+          child: ListView(
             children: <Widget>[
-              new Text('Organizing Team of ALFC',
-                style: new TextStyle(fontWeight: FontWeight.bold,fontSize:32.0,color: Colors.black87.withOpacity(0.5)),),
-              new Card(
-
-                  child: new Center(
-                    child: new Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: new Text('Aurangabad league football championship is a platform for the players of the region to showcase their raw talent. \n \n'
-                          'The ultimate aim of the league is to bring out the talent and polish it to its best.\n \n The important highlight being that this league is being watched over by all the registered referees​ with WIFA.',
-                        style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 26.0,color: Colors.blueGrey.withOpacity(0.5)),
-
-
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFF7a4e67),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Shaikh Azhar',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                       ),
+                      Expanded(child: Center(child: Text('General seceratary',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed')))),
+                    ],
+                  ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFaf5d69),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Krutikesh Age',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Management seceratary',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                      ),
+                    ],
                     ),
-                  )),
-              //new MyCard(),
-              new Text('\n Team Leader \n',
-                style: new TextStyle(fontWeight: FontWeight.bold,fontSize:32.0,color: Colors.black87.withOpacity(0.5)),),
-              new Card(
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text('Team Leader',
-                      style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 26.0,color: Colors.blueGrey.withOpacity(0.5)),),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
                   ),
                 ),
-              )
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFde8273),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Dr. Masood Hashmi',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Tournament Commissioner',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFfbad89),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Abubakar',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Referee Assessor',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFfd8a53),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Azam Khan',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Commentator',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFf7a448),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Mohsin Khan',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Ground Incharge',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFfb6b53),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Mirza Viquar',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Groundsman',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFF69b7a1),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Ateeq Ahemad',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Groundsman',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFF7a4e67),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Dhiraj Bhombe',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Phorographer',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFF673656),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Rajesh Ghodke',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Social Media Incharge',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFaf5d69),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Shaikh Azhar Babar',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFde8273),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Mohsin Khan',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFfbad89),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Mirza Feroz Baig',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFfd8a53),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Sultan Khan',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFf7a448),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Imran Siddiqui',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFfb6b53),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Amer Yaar Khan',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFF69b7a1),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Shaikh Mazhar',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFF7a4e67),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Siddiqui Najeeb',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFF673656),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Yashashree Deshmukh',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFaf5d69),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Mohd Abdul Kazim',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+
+              Padding(
+                padding: const EdgeInsets.only(left:40.0),
+                child: new Container(
+                  height:50.0,
+                  width: 320.0,
+                  color: Color(0xFFde8273),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Shaikh Shareq',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        ),
+                      Expanded(
+                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        ),
+                    ],
+                    ),
+                  //decoration: new BoxDecoration( color: Color(0xFF005792),),
+
+                  ),
+                ),
+
+
+
+
+
+
+
             ],
-
           ),
-
         ),
       ),
 

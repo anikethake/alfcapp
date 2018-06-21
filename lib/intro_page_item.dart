@@ -39,7 +39,8 @@ class IntroPageItem extends StatelessWidget {
       child: new Text(
         item.category,
         style: textTheme.caption.copyWith(
-          color: Colors.blue,
+          fontFamily: 'Poppins',
+          color: Colors.white,
           fontWeight: FontWeight.bold,
           letterSpacing: 2.0,
           fontSize: 34.0,
@@ -69,7 +70,7 @@ class IntroPageItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           categoryText,
-          titleText,
+          //titleText,
         ],
       ),
     );
@@ -101,7 +102,7 @@ class IntroPageItem extends StatelessWidget {
         child: new Stack(
           fit: StackFit.expand,
           children: [
-            new Center(child: image),
+            image,
 
             _buildTextContainer(context),
           ],

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 import 'package:progress_hud/progress_hud.dart';
-import 'package:async/async.dart';
+import 'teams/team_home.dart';
 
 //void main() => runApp(new MyApp());
 
@@ -62,6 +62,11 @@ class _MyHomePageState extends State<MyFixtures> {
 class TeamList extends StatelessWidget {
   DateTime now = new DateTime.now();
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  String team1;
+  String team2;
+  String team2score;
+  String team1score;
   @override
   Widget build(BuildContext context) {
     return new Column(
@@ -74,7 +79,6 @@ class TeamList extends StatelessWidget {
             child: new StreamBuilder<QuerySnapshot>(
               stream: Firestore.instance
                   .collection('ALFCdata')
-                  .limit(2)
                   .orderBy('matchdate')
                   .where('done', isEqualTo: false)
                   .snapshots(),
@@ -89,6 +93,7 @@ class TeamList extends StatelessWidget {
                   );
 
                 return new ListView(
+                  key: _scaffoldKey,
                   children:
                       snapshot.data.documents.map((DocumentSnapshot document1) {
                     DateTime now = new DateTime.now();
@@ -179,7 +184,10 @@ class TeamList extends StatelessWidget {
                             Navigator.push(
                               context,
                               new MaterialPageRoute(
-                                builder: (context) => new fixopen(),
+                                builder: (context) => new fixopenscore(
+                                    team1: document1['team1'],
+                                    team2: document1['team2'],
+                                    date: formatted),
                               ),
                             );
                           },
@@ -200,7 +208,6 @@ class TeamList extends StatelessWidget {
             child: new StreamBuilder<QuerySnapshot>(
               stream: Firestore.instance
                   .collection('ALFCdata')
-                  .limit(5)
                   .orderBy('matchdate')
                   .where('done', isEqualTo: true)
                   .snapshots(),
@@ -221,61 +228,77 @@ class TeamList extends StatelessWidget {
                       padding: new EdgeInsets.all(8.0),
                       child: SizedBox(
                         height: 120.0,
-                        child: new Card(
-                          color: Color(0xFF240629),
-                          child: Container(
-                            decoration: new BoxDecoration(
-                              color: Color(0xFFBA3D68),
-                              shape: BoxShape.rectangle,
-                              borderRadius: new BorderRadius.circular(18.0),
-                            ),
-                            child: Row(
-                              children: <Widget>[
-                                new Column(
-                                  children: <Widget>[
-                                    new Padding(
-                                      padding: const EdgeInsets.all(16.0),
-                                      child: new Text(
-                                        document['team1score'],
-                                        textAlign: TextAlign.center,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: new TextStyle(
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 18.0,
-                                            color:
-                                                Colors.white.withOpacity(1.0)),
-                                      ),
-                                    ),
-                                    new Padding(
-                                      padding: const EdgeInsets.all(16.0),
-                                      child: new Text(
-                                        document['team2score'],
-                                        textAlign: TextAlign.center,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: new TextStyle(
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 18.0,
-                                            color:
-                                                Colors.white.withOpacity(1.0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  height: 120.0,
-                                  width: 1.0,
-                                  color: Colors.black87,
-                                  margin: const EdgeInsets.only(
-                                      left: 10.0, right: 10.0),
-                                ),
-                                new Expanded(
-                                  child: new Column(
+                        child: InkWell(
+                          child: new Card(
+                            color: Color(0xFF240629),
+                            child: Container(
+                              decoration: new BoxDecoration(
+                                color: Color(0xFFBA3D68),
+                                shape: BoxShape.rectangle,
+                                borderRadius: new BorderRadius.circular(18.0),
+                              ),
+                              child: Row(
+                                children: <Widget>[
+                                  new Column(
                                     children: <Widget>[
-                                      new Expanded(
-                                        child: new Padding(
+                                      new Padding(
+                                        padding: const EdgeInsets.all(16.0),
+                                        child: new Text(
+                                          document['team1score'],
+                                          textAlign: TextAlign.center,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: new TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 18.0,
+                                              color: Colors.white
+                                                  .withOpacity(1.0)),
+                                        ),
+                                      ),
+                                      new Padding(
+                                        padding: const EdgeInsets.all(16.0),
+                                        child: new Text(
+                                          document['team2score'],
+                                          textAlign: TextAlign.center,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: new TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 18.0,
+                                              color: Colors.white
+                                                  .withOpacity(1.0)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    height: 120.0,
+                                    width: 1.0,
+                                    color: Colors.black87,
+                                    margin: const EdgeInsets.only(
+                                        left: 10.0, right: 10.0),
+                                  ),
+                                  new Expanded(
+                                    child: new Column(
+                                      children: <Widget>[
+                                        new Expanded(
+                                          child: new Padding(
+                                            padding: const EdgeInsets.all(18.0),
+                                            child: new Text(
+                                              document['team1'],
+                                              textAlign: TextAlign.center,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: new TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16.0,
+                                                  color: Colors.white
+                                                      .withOpacity(1.0)),
+                                            ),
+                                          ),
+                                        ),
+                                        new Expanded(
+                                            child: new Padding(
                                           padding: const EdgeInsets.all(18.0),
                                           child: new Text(
-                                            document['team1'],
+                                            document['team2'],
                                             textAlign: TextAlign.center,
                                             overflow: TextOverflow.ellipsis,
                                             style: new TextStyle(
@@ -284,28 +307,27 @@ class TeamList extends StatelessWidget {
                                                 color: Colors.white
                                                     .withOpacity(1.0)),
                                           ),
-                                        ),
-                                      ),
-                                      new Expanded(
-                                          child: new Padding(
-                                        padding: const EdgeInsets.all(18.0),
-                                        child: new Text(
-                                          document['team2'],
-                                          textAlign: TextAlign.center,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: new TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16.0,
-                                              color: Colors.white
-                                                  .withOpacity(1.0)),
-                                        ),
-                                      )),
-                                    ],
+                                        )),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              new MaterialPageRoute(
+                                builder: (context) => new fixopen(
+                                      team1: document['team1'],
+                                      team2: document['team2'],
+                                      team1score: document['team1score'],
+                                      team2score: document['team2score'],
+                                    ),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     );
@@ -320,16 +342,91 @@ class TeamList extends StatelessWidget {
   }
 }
 
-class fixopen extends StatefulWidget {
+class fixopen extends StatelessWidget {
+  fixopen({Key key, this.team1, this.team2, this.team1score, this.team2score})
+      : super(key: key);
+  String team1;
+  String team2;
+  String team1score;
+  String team2score;
+
   @override
-  _fixopenState createState() => _fixopenState();
+  Widget build(BuildContext context) {
+    return new Material(
+      child: new Column(
+        children: <Widget>[
+          Container(
+            color: Color(0xFF240629),
+            height: 180.0,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  team1,
+                  style: TextStyle(color: Colors.white, fontSize: 16.0),
+                ),
+                Text(
+                  team1score,
+                  style: TextStyle(color: Colors.white, fontSize: 22.0),
+                ),
+                Icon(
+                  Icons.bookmark,
+                  size: 42.0,
+                  color: Colors.white,
+                ),
+                Text(
+                  team2score,
+                  style: TextStyle(color: Colors.white, fontSize: 22.0),
+                ),
+                Text(
+                  team2,
+                  style: TextStyle(color: Colors.white, fontSize: 16.0),
+                )
+              ],
+            ),
+          ),
+          new Padding(
+            padding: const EdgeInsets.only(top: 18.0),
+            child: Container(
+              color: Color(0xFF781336),
+              height: 80.0,
+              child: new Center(
+                  child: Text(
+                'Lineup',
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
+              )),
+            ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                child: lineup(team1),
+              ),
+              Center(
+                child: Container(
+                  color: Colors.black87,
+                  height: 120.0,
+                  width: 1.0,
+                ),
+              ),
+              Container(
+                child: lineup(team2),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
 }
 
-class _fixopenState extends State<fixopen> {
-  //CollectionReference get team1 => Firestore.instance.collection('team1');
-//  Future<Null> team() async {
-//    Firestore.instance.collection('ALFCteams').document().snapshots();
-//  }
+class fixopenscore extends StatelessWidget {
+  fixopenscore({Key key, this.team1, this.team2, this.date}) : super(key: key);
+  String team1;
+  String team2;
+  String date;
 
   @override
   Widget build(BuildContext context) {
@@ -343,26 +440,17 @@ class _fixopenState extends State<fixopen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                Text('text'
-                  ,
-                  style: TextStyle(color: Colors.white, fontSize: 22.0),
+                Text(
+                  team1,
+                  style: TextStyle(color: Colors.white, fontSize: 16.0),
                 ),
                 Text(
-                  '1',
-                  style: TextStyle(color: Colors.white, fontSize: 32.0),
-                ),
-                Icon(
-                  Icons.bookmark,
-                  size: 42.0,
-                  color: Colors.white,
+                  date,
+                  style: TextStyle(color: Colors.white, fontSize: 16.0),
                 ),
                 Text(
-                  '3',
-                  style: TextStyle(color: Colors.white, fontSize: 32.0),
-                ),
-                Text(
-                  'Team B',
-                  style: TextStyle(color: Colors.white, fontSize: 22.0),
+                  team2,
+                  style: TextStyle(color: Colors.white, fontSize: 16.0),
                 )
               ],
             ),
@@ -375,32 +463,101 @@ class _fixopenState extends State<fixopen> {
               child: new Center(
                   child: Text(
                 'Lineup',
-                style: TextStyle(color: Colors.white,fontSize: 22.0),
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
               )),
             ),
           ),
-          new Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: new StreamBuilder<QuerySnapshot>(
-              stream: Firestore.instance.collection('ALFCdata').snapshots(),
-              builder: (BuildContext context,
-                  AsyncSnapshot<QuerySnapshot> snapshot) {
-                if (!snapshot.hasData) return const Text('Loading...');
-                return new ListView.builder(
-                  itemBuilder:(contex,index) {snapshot.data.documents
-                      .map((DocumentSnapshot document) {
-                    return new Card(
-                      color: Colors.green,
-                      child:new Text(document['team1'],style: TextStyle(color: Colors.black87,fontSize: 22.0)),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+           // mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    child: lineup(team1),
+                  ),
+                ),
+              ),
+              Container(
 
-                    );
-                  }).toList();
-                  }
-                );
-              },
-            ),
+                color: Colors.black87,
+                height: 120.0,
+                width: 1.0,
+              ),
+              Expanded(
+                child: Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: lineup(team2),
+                  ),
+                ),
+              ),
+            ],
           )
         ],
+      ),
+    );
+  }
+}
+
+class lineup extends StatelessWidget {
+  lineup(String this.teamname);
+  String teamname;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: new StreamBuilder<QuerySnapshot>(
+        stream: Firestore.instance.collection(teamname).snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData) return const Text('Loading...');
+          final int messageCount = snapshot.data.documents.length;
+
+          return new ListView.builder(
+            itemCount: messageCount,
+            itemBuilder: (_, int index) {
+              final DocumentSnapshot document = snapshot.data.documents[index];
+
+              return new InkWell(
+                child: new Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: new Container(
+                    color: Color(0xFFAF5D69),
+                    height: 80.0,
+                    child: new Center(
+                      child: new Text(
+                        document['name'],
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 19.0,
+                          fontFamily: "Poppins",
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.of(context).push(
+//                    new MaterialPageRoute(
+//                      builder: (context) {
+//                         //new
+//                        playerwin();
+//                      },
+//                      ),
+                        MaterialPageRoute(
+                            builder: (context) => playerscreen(
+                                  name: document['name'],
+                                )),
+                      );
+//                setState(() {
+//                  name=document['name'];
+//                });
+                },
+              );
+            },
+          );
+        },
       ),
     );
   }
