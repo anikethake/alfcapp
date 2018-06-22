@@ -360,28 +360,44 @@ class fixopen extends StatelessWidget {
             height: 180.0,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text(
-                  team1,
-                  style: TextStyle(color: Colors.white, fontSize: 16.0),
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      team1,
+                      style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    ),
+                  ),
                 ),
-                Text(
-                  team1score,
-                  style: TextStyle(color: Colors.white, fontSize: 22.0),
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      team1score,
+                      style: TextStyle(color: Colors.white, fontSize: 32.0),
+                    ),
+                  ),
                 ),
                 Icon(
                   Icons.bookmark,
                   size: 42.0,
                   color: Colors.white,
                 ),
-                Text(
-                  team2score,
-                  style: TextStyle(color: Colors.white, fontSize: 22.0),
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      team2score,
+                      style: TextStyle(color: Colors.white, fontSize: 32.0),
+                    ),
+                  ),
                 ),
-                Text(
-                  team2,
-                  style: TextStyle(color: Colors.white, fontSize: 16.0),
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      team2,
+                      style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    ),
+                  ),
                 )
               ],
             ),
@@ -400,19 +416,29 @@ class fixopen extends StatelessWidget {
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Container(
-                child: lineup(team1),
+              Flexible(
+                child: Container(child: SizedBox(
+                    height: 400.0,
+                    width: 180.0,
+                    child: lineup(team1))),
               ),
               Center(
                 child: Container(
                   color: Colors.black87,
-                  height: 120.0,
+                  height: 400.0,
                   width: 1.0,
                 ),
               ),
-              Container(
-                child: lineup(team2),
+              Flexible(
+                child: Container(
+                  child: SizedBox
+                    (
+                      height: 400.0,
+                      width: 180.0,
+                      child: lineup(team2)),
+                ),
               ),
             ],
           )
@@ -436,22 +462,31 @@ class fixopenscore extends StatelessWidget {
           Container(
             color: Color(0xFF240629),
             height: 180.0,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  team1,
-                  style: TextStyle(color: Colors.white, fontSize: 16.0),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text(
+                      team1,
+                      style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    ),
+
+                    Text(
+                      team2,
+                      style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    )
+                  ],
                 ),
-                Text(
-                  date,
-                  style: TextStyle(color: Colors.white, fontSize: 16.0),
+                Padding(
+                  padding: const EdgeInsets.only(top:28.0),
+                  child: Text(
+                    date,
+                    style: TextStyle(color: Colors.white, fontSize: 26.0),
+                    ),
                 ),
-                Text(
-                  team2,
-                  style: TextStyle(color: Colors.white, fontSize: 16.0),
-                )
               ],
             ),
           ),
@@ -469,12 +504,14 @@ class fixopenscore extends StatelessWidget {
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-           // mainAxisAlignment: MainAxisAlignment.center,
+           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
+              Flexible(
+                child: Container
+                  (
+                  child: SizedBox(
+                    height: 400.0,
+                    width: 180.0,
                     child: lineup(team1),
                   ),
                 ),
@@ -482,15 +519,14 @@ class fixopenscore extends StatelessWidget {
               Container(
 
                 color: Colors.black87,
-                height: 120.0,
+                height: 400.0,
                 width: 1.0,
               ),
-              Expanded(
-                child: Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: lineup(team2),
-                  ),
+              Container(
+                child: SizedBox(
+                  height: 400.0,
+                  width: 180.0,
+                  child: lineup(team2),
                 ),
               ),
             ],
@@ -507,58 +543,56 @@ class lineup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: new StreamBuilder<QuerySnapshot>(
-        stream: Firestore.instance.collection(teamname).snapshots(),
-        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (!snapshot.hasData) return const Text('Loading...');
-          final int messageCount = snapshot.data.documents.length;
+    return StreamBuilder<QuerySnapshot>(
+      stream: Firestore.instance.collection(teamname).snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (!snapshot.hasData) return const Text('Loading...');
+        final int messageCount = snapshot.data.documents.length;
 
-          return new ListView.builder(
-            itemCount: messageCount,
-            itemBuilder: (_, int index) {
-              final DocumentSnapshot document = snapshot.data.documents[index];
+        return new ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: messageCount,
+          padding: const EdgeInsets.all(0.0),
+          itemBuilder: (_, int index) {
+            final DocumentSnapshot document = snapshot.data.documents[index];
 
-              return new InkWell(
-                child: new Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: new Container(
-                    color: Color(0xFFAF5D69),
-                    height: 80.0,
-                    child: new Center(
-                      child: new Text(
-                        document['name'],
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 19.0,
-                          fontFamily: "Poppins",
-                        ),
-                      ),
+            return new InkWell(
+              child: new Center(
+                child: ListTile(
+                  leading: Icon(Icons.accessibility),
+                  title: new Text(
+                    document['name'],
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12.0,
+                      fontFamily: "Poppins",
                     ),
                   ),
                 ),
-                onTap: () {
-                  Navigator.of(context).push(
-//                    new MaterialPageRoute(
-//                      builder: (context) {
-//                         //new
-//                        playerwin();
-//                      },
-//                      ),
-                        MaterialPageRoute(
-                            builder: (context) => playerscreen(
-                                  name: document['name'],
-                                )),
-                      );
-//                setState(() {
-//                  name=document['name'];
-//                });
-                },
-              );
-            },
-          );
-        },
-      ),
+              ),
+//                onTap: () {
+//                  Navigator.of(context).push(
+////                    new MaterialPageRoute(
+////                      builder: (context) {
+////                         //new
+////                        playerwin();
+////                      },
+////                      ),
+//                        MaterialPageRoute(
+//                            builder: (context) => playerscreen(
+//                                  name: document['name'],
+//                                )),
+//                      );
+////                setState(() {
+////                  name=document['name'];
+////                });
+//                },
+            );
+          },
+        );
+      },
     );
   }
 }
+
