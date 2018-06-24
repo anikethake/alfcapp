@@ -1,8 +1,7 @@
-# alfcapp
+# Aurangabad Footbal Network android application
 
-A new Flutter application.
+Created using Flutter.
 
-## Getting Started
+## Screenshots
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+
