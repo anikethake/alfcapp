@@ -432,29 +432,28 @@ class fixopen extends StatelessWidget {
                       child: Container(
                         color: Color(0xFF781336),
                         height: 60.0,
-                        child: Row(
+                        child: Stack(
 
-                         mainAxisAlignment: MainAxisAlignment.center,
+
+
                           children: <Widget>[
 
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Center(
-                                child: Center(
-                                  child: Text(
-                                    'Lineup',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 16.0
-                                        ),
-                                   // textAlign: TextAlign.center,
-                                    ),
-                                ),
+                                child: Text(
+                                  'Lineup',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 16.0
+                                      ),
+                                 // textAlign: TextAlign.center,
+                                  ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Icon(Icons.arrow_forward_ios,color: Colors.white70,),
-                              ),
+                            Container(
+                                alignment: Alignment.centerRight,
+
+                                child: Icon(Icons.arrow_forward_ios,color: Colors.white70,)),
                           ],
                           ),
                         ),
@@ -501,22 +500,27 @@ class fixopen extends StatelessWidget {
                         child: Container(
                           color: Color(0xFF781336),
                           height: 60.0,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          child: Stack(
+
                             children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Icon(Icons.arrow_back_ios,color: Colors.white70,),
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Icon(Icons.arrow_back_ios,color: Colors.white70,),
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  'Events',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 16.0
-                                      ),
-                                   textAlign: TextAlign.center,
-                                  ),
+                                child: Center(
+                                  child: Text(
+                                    'Events',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16.0
+                                        ),
+                                     textAlign: TextAlign.center,
+                                    ),
+                                ),
                               ),
                             ],
                           ),
