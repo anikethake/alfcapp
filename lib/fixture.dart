@@ -336,7 +336,7 @@ class TeamList extends StatelessWidget {
               },
             ),
           ),
-        )
+        ),
       ],
     );
   }
@@ -364,9 +364,19 @@ class fixopen extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: Center(
-                    child: Text(
-                      team1,
-                      style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    child: InkWell(
+                      child: Text(
+                        team1,
+                        style: TextStyle(color: Colors.white, fontSize: 16.0),
+                      ),
+                      onTap: () {
+                        Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => playerscreen(
+                                        name: team1,
+                                      )),
+                            );
+                      },
                     ),
                   ),
                 ),
@@ -393,55 +403,142 @@ class fixopen extends StatelessWidget {
                 ),
                 Expanded(
                   child: Center(
-                    child: Text(
-                      team2,
-                      style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    child: InkWell(
+                      child: Text(
+                        team2,
+                        style: TextStyle(color: Colors.white, fontSize: 16.0),
+                      ),
+                      onTap: () {
+                        Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => playerscreen(
+                                        name: team2,
+                                      )),
+                            );
+                      },
                     ),
                   ),
                 )
               ],
             ),
           ),
-          new Padding(
-            padding: const EdgeInsets.only(top: 18.0),
-            child: Container(
-              color: Color(0xFF781336),
-              height: 80.0,
-              child: new Center(
-                  child: Text(
-                'Lineup',
-                style: TextStyle(color: Colors.white, fontSize: 16.0),
-              )),
+          Flexible(
+            child: PageView(
+              children: [
+                new Column(
+                  children: <Widget>[
+                    new Padding(
+                      padding: const EdgeInsets.only(top: 18.0),
+                      child: Container(
+                        color: Color(0xFF781336),
+                        height: 60.0,
+                        child: Row(
+
+                         mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Center(
+                                child: Center(
+                                  child: Text(
+                                    'Lineup',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16.0
+                                        ),
+                                   // textAlign: TextAlign.center,
+                                    ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Icon(Icons.arrow_forward_ios,color: Colors.white70,),
+                              ),
+                          ],
+                          ),
+                        ),
+                      ),
+                    Flexible(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Flexible(
+                            child: Container(
+                                child: SizedBox(
+                                    height: 400.0,
+                                    width: 180.0,
+                                    child: lineup(team1))),
+                          ),
+                          Center(
+                            child: Container(
+                              color: Colors.black87,
+                              height: 400.0,
+                              width: 1.0,
+                            ),
+                          ),
+                          Flexible(
+                            child: Container(
+                              child: SizedBox(
+                                  height: 400.0,
+                                  width: 180.0,
+                                  child: lineup(team2)),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  child: Column(
+                   // crossAxisAlignment: CrossAxisAlignment.center,
+                    //mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new Padding(
+                        padding: const EdgeInsets.only(top: 18.0),
+                        child: Container(
+                          color: Color(0xFF781336),
+                          height: 60.0,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(Icons.arrow_back_ios,color: Colors.white70,),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  'Events',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 16.0
+                                      ),
+                                   textAlign: TextAlign.center,
+                                  ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 300.0,
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Flexible(
-                child: Container(child: SizedBox(
-                    height: 400.0,
-                    width: 180.0,
-                    child: lineup(team1))),
-              ),
-              Center(
-                child: Container(
-                  color: Colors.black87,
-                  height: 400.0,
-                  width: 1.0,
-                ),
-              ),
-              Flexible(
-                child: Container(
-                  child: SizedBox
-                    (
-                      height: 400.0,
-                      width: 180.0,
-                      child: lineup(team2)),
-                ),
-              ),
-            ],
-          )
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: FloatingActionButton(
+              backgroundColor: Color(0xFF240629),
+              child: Icon(Icons.keyboard_return),
+              onPressed: () => Navigator.pop(context),
+            ),
+          ),
         ],
       ),
     );
@@ -456,82 +553,118 @@ class fixopenscore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Material(
-      child: new Column(
-        children: <Widget>[
-          Container(
-            color: Color(0xFF240629),
-            height: 180.0,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Text(
-                      team1,
-                      style: TextStyle(color: Colors.white, fontSize: 16.0),
-                    ),
-
-                    Text(
-                      team2,
-                      style: TextStyle(color: Colors.white, fontSize: 16.0),
-                    )
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top:28.0),
-                  child: Text(
-                    date,
-                    style: TextStyle(color: Colors.white, fontSize: 26.0),
-                    ),
-                ),
-              ],
-            ),
-          ),
-          new Padding(
-            padding: const EdgeInsets.only(top: 18.0),
-            child: Container(
-              color: Color(0xFF781336),
-              height: 80.0,
-              child: new Center(
-                  child: Text(
-                'Lineup',
-                style: TextStyle(color: Colors.white, fontSize: 16.0),
-              )),
-            ),
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Flexible(
-                child: Container
-                  (
-                  child: SizedBox(
-                    height: 400.0,
-                    width: 180.0,
-                    child: lineup(team1),
+    return MaterialApp(
+      home: new Material(
+        child: new Column(
+          children: <Widget>[
+            Container(
+              color: Color(0xFF240629),
+              height: 180.0,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      InkWell(
+                        child: Text(
+                          team1,
+                          style: TextStyle(color: Colors.white, fontSize: 16.0),
+                        ),
+                        onTap: () {
+                          Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (context) => playerscreen(
+                                          name: team1,
+                                        )),
+                              );
+                        },
+                      ),
+                      InkWell(
+                        child: Text(
+                          team2,
+                          style: TextStyle(color: Colors.white, fontSize: 16.0),
+                        ),
+                        onTap: () {
+                          Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (context) => playerscreen(
+                                          name: team2,
+                                        )),
+                              );
+                        },
+                      )
+                    ],
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 28.0),
+                    child: Text(
+                      date,
+                      style: TextStyle(color: Colors.white, fontSize: 26.0),
+                    ),
+                  ),
+                ],
               ),
-              Container(
-
-                color: Colors.black87,
-                height: 400.0,
-                width: 1.0,
+            ),
+            Flexible(
+              // height: 370.0,
+              child: Column(
+                children: <Widget>[
+                  new Padding(
+                    padding: const EdgeInsets.only(top: 18.0),
+                    child: Container(
+                      color: Color(0xFF781336),
+                      height: 60.0,
+                      child: new Center(
+                          child: Text(
+                        'Lineup',
+                        style: TextStyle(color: Colors.white, fontSize: 16.0),
+                      )),
+                    ),
+                  ),
+                  Flexible(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Flexible(
+                          child: Container(
+                            child: SizedBox(
+                              height: 400.0,
+                              width: 180.0,
+                              child: lineup(team1),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          color: Colors.black87,
+                          height: 400.0,
+                          width: 1.0,
+                        ),
+                        Container(
+                          child: SizedBox(
+                            height: 400.0,
+                            width: 180.0,
+                            child: lineup(team2),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              Container(
-                child: SizedBox(
-                  height: 400.0,
-                  width: 180.0,
-                  child: lineup(team2),
-                ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: FloatingActionButton(
+                backgroundColor: Color(0xFF240629),
+                child: Icon(Icons.keyboard_return),
+                onPressed: () => Navigator.pop(context),
               ),
-            ],
-          )
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -595,4 +728,3 @@ class lineup extends StatelessWidget {
     );
   }
 }
-

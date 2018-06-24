@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyStanding> {
 
                             ),
                           new  Expanded(
-                            child: new Text('W',
+                            child: new Text('MP',
                                               textAlign: TextAlign.center,
                                               overflow: TextOverflow.ellipsis,
                                               style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Colors.white.withOpacity(1.0)),),
@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyStanding> {
 
                             ),
                           new  Expanded(
-                            child: new Text('MP',
+                            child: new Text('W',
                                               textAlign: TextAlign.center,
                                               overflow: TextOverflow.ellipsis,
                                               style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Colors.white.withOpacity(1.0)),),
@@ -160,104 +160,216 @@ class _MyTeamListState extends State<TeamList>
 
 
 
-    return new Container(
-      padding: const EdgeInsets.only(right: 4.0 ,left: 4.0),
-      decoration: new BoxDecoration( color: Color(0xFF009688)),
-      child:  new StreamBuilder<QuerySnapshot>(
-        stream : Firestore.instance.collection('ALFCstanding').orderBy('PTS').snapshots(),
-        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot)
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text('Pool A',style: TextStyle(fontSize: 22.0),),
+        ),
+        SizedBox(
+          height: 200.0,
+          child: new Container(
+            padding: const EdgeInsets.only(right: 4.0 ,left: 4.0),
+            decoration: new BoxDecoration( color: Color(0xFF009688)),
+            child:  new StreamBuilder<QuerySnapshot>(
+              stream : Firestore.instance.collection('ALFCstanding').where('pool', isEqualTo: 'a').snapshots(),
+              builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot)
 
 
 
 
-        {
-         if (!snapshot.hasData) return  new ProgressHUD(
-           backgroundColor: Colors.black12,
-           color: Colors.white,
-           containerColor: Colors.blue,
-           borderRadius: 5.0,
-         );
+              {
+               if (!snapshot.hasData) return  new ProgressHUD(
+                 backgroundColor: Colors.black12,
+                 color: Colors.white,
+                 containerColor: Colors.blue,
+                 borderRadius: 5.0,
+               );
 
 
-         return new Container(
+               return new Container(
 
-           child: new ListView(
-            children: snapshot.data.documents.map((DocumentSnapshot document)
-            {
-                  W = document['W']*3 ;
-                  D = document['D']*1 ;
-                  L = document['L']*0 ;
-                  pts= W+D+L;
+                 child: new ListView(
 
-              return new Padding(
-                padding: new EdgeInsets.only(left: 5.0,right:5.0),
-                child: Row(
-                  children: <Widget>[
+                  children: snapshot.data.documents.map((DocumentSnapshot document)
+                  {
+                     return new Padding(
+                      padding: new EdgeInsets.only(left: 5.0,right:5.0),
+                      child: Row(
+                        children: <Widget>[
 
-                    new  Expanded(
-                      child: new Text(document['name'],
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+                          new  Expanded(
+                            child: new Text(document['name'],
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.ellipsis,
+                              style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
 
-                    ),
-                    new  Expanded(
-                      child: new Text(document['W'].toString(),
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+                          ),
+                          new  Expanded(
+                            child: new Text(document['MP'].toString(),
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.ellipsis,
+                              style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
 
-                    ),
-                    new  Expanded(
-                      child: new Text(document['D'].toString(),
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+                          ),
+                          new  Expanded(
+                            child: new Text(document['D'].toString(),
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.ellipsis,
+                              style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
 
-                    ),
-                    new  Expanded(
-                      child: new Text(document['L'].toString(),
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+                          ),
+                          new  Expanded(
+                            child: new Text(document['L'].toString(),
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.ellipsis,
+                              style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
 
-                    ),
-                    new  Expanded(
-                      child: new Text(document['MP'].toString(),
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+                          ),
+                          new  Expanded(
+                            child: new Text(document['W'].toString(),
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.ellipsis,
+                              style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
 
-                    ),
+                          ),
 
-                    new Expanded(
-                      child: new Text(document['GD'].toString(),
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),
-                    )),
+                          new Expanded(
+                            child: new Text(document['GD'].toString(),
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.ellipsis,
+                              style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),
+                          )),
 
-                    new Expanded(
+                          new Expanded(
 
 
-                        child: new Text(document['PTS'].toString(),
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),
-                        )),
+                              child: new Text(document['PTS'].toString(),
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                                style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),
+                              )),
 
 
 
 
-                  ],
+                        ],
+                      ),
+                    );
+                  }).toList(),
+
                 ),
-              );
-            }).toList(),
-
+                );
+              },
+            ),
           ),
-          );
-        },
-      ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text('Pool B',style: TextStyle(fontSize: 22.0),),
+          ),
+        SizedBox(
+          height: 200.0,
+          child: new Container(
+            padding: const EdgeInsets.only(right: 4.0 ,left: 4.0),
+            decoration: new BoxDecoration( color: Color(0xFF009688)),
+            child:  new StreamBuilder<QuerySnapshot>(
+              stream : Firestore.instance.collection('ALFCstanding').where('pool',isEqualTo: 'b').snapshots(),
+              builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot)
+
+
+
+
+              {
+                if (!snapshot.hasData) return  new ProgressHUD(
+                  backgroundColor: Colors.black12,
+                  color: Colors.white,
+                  containerColor: Colors.blue,
+                  borderRadius: 5.0,
+                  );
+
+
+                return new Container(
+
+                  child: new ListView(
+
+                    children: snapshot.data.documents.map((DocumentSnapshot document)
+                                                          {
+                                                            return new Padding(
+                                                              padding: new EdgeInsets.only(left: 5.0,right:5.0),
+                                                              child: Row(
+                                                                children: <Widget>[
+
+                                                                  new  Expanded(
+                                                                    child: new Text(document['name'],
+                                                                                      textAlign: TextAlign.center,
+                                                                                      overflow: TextOverflow.ellipsis,
+                                                                                      style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+
+                                                                    ),
+                                                                  new  Expanded(
+                                                                    child: new Text(document['MP'].toString(),
+                                                                                      textAlign: TextAlign.center,
+                                                                                      overflow: TextOverflow.ellipsis,
+                                                                                      style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+
+                                                                    ),
+                                                                  new  Expanded(
+                                                                    child: new Text(document['D'].toString(),
+                                                                                      textAlign: TextAlign.center,
+                                                                                      overflow: TextOverflow.ellipsis,
+                                                                                      style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+
+                                                                    ),
+                                                                  new  Expanded(
+                                                                    child: new Text(document['L'].toString(),
+                                                                                      textAlign: TextAlign.center,
+                                                                                      overflow: TextOverflow.ellipsis,
+                                                                                      style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+
+                                                                    ),
+                                                                  new  Expanded(
+                                                                    child: new Text(document['W'].toString(),
+                                                                                      textAlign: TextAlign.center,
+                                                                                      overflow: TextOverflow.ellipsis,
+                                                                                      style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),),
+
+                                                                    ),
+
+                                                                  new Expanded(
+                                                                      child: new Text(document['GD'].toString(),
+                                                                                        textAlign: TextAlign.center,
+                                                                                        overflow: TextOverflow.ellipsis,
+                                                                                        style: new TextStyle(fontWeight: FontWeight.normal,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),
+                                                                                      )),
+
+                                                                  new Expanded(
+
+
+                                                                      child: new Text(document['PTS'].toString(),
+                                                                                        textAlign: TextAlign.center,
+                                                                                        overflow: TextOverflow.ellipsis,
+                                                                                        style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Colors.white.withOpacity(1.0)),
+                                                                                      )),
+
+
+
+
+                                                                ],
+                                                                ),
+                                                              );
+                                                          }).toList(),
+
+                    ),
+                  );
+              },
+              ),
+            ),
+        )
+      ],
     );
   }
 

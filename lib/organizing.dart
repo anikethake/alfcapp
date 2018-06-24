@@ -23,7 +23,10 @@ class organizingteam extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Text('Shaikh Azhar',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                       ),
-                      Expanded(child: Center(child: Text('General seceratary',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed')))),
+                      Expanded(child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('General seceratary',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                      )),
                     ],
                   ),
                   //decoration: new BoxDecoration( color: Color(0xFF005792),),
@@ -40,10 +43,13 @@ class organizingteam extends StatelessWidget {
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('Krutikesh Age',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
+                        child: Text('Krutikesh Age',style: TextStyle(color: Colors.white70,fontFamily:'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Management seceratary',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Management seceratary',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                       ),
                     ],
                     ),
@@ -64,7 +70,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Dr. Masood Hashmi',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Tournament Commissioner',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Tournament Commissioner',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -85,7 +94,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Abubakar',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Referee Assessor',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Referee Assessor',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -106,7 +118,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Azam Khan',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Commentator',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Commentator',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -127,7 +142,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Mohsin Khan',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Ground Incharge',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Ground Incharge',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -148,7 +166,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Mirza Viquar',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Groundsman',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Groundsman',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -169,7 +190,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Ateeq Ahemad',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Groundsman',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Groundsman',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -190,7 +214,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Dhiraj Bhombe',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Phorographer',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Phorographer',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -210,7 +237,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Rajesh Ghodke',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Social Media Incharge',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Social Media Incharge',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -230,7 +260,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Shaikh Azhar Babar',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -250,7 +283,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Mohsin Khan',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -270,7 +306,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Mirza Feroz Baig',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -291,7 +330,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Sultan Khan',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -313,7 +355,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Imran Siddiqui',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -335,7 +380,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Amer Yaar Khan',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -357,7 +405,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Shaikh Mazhar',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -379,7 +430,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Siddiqui Najeeb',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -401,7 +455,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Yashashree Deshmukh',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -423,7 +480,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Mohd Abdul Kazim',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
@@ -445,7 +505,10 @@ class organizingteam extends StatelessWidget {
                         child: Text('Shaikh Shareq',style: TextStyle(color: Colors.white70,fontFamily: 'OpenSans'),),
                         ),
                       Expanded(
-                        child: Center(child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Referee',style: TextStyle(color: Colors.white,fontFamily: 'UbuntuCondensed'),textAlign: TextAlign.right,),
+                        ),
                         ),
                     ],
                     ),
