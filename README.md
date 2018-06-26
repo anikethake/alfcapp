@@ -1,4 +1,4 @@
-# Aurangabad Footbal Network android application
+# Aurangabad Football Network android application
 
 Created using Flutter.
 
